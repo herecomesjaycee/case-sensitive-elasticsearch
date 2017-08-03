@@ -46,5 +46,12 @@ client.indices.create index: 'products_jc',
                       }
 
 TERMS.each_with_index do |term, index|
-  client.index  index: 'products_jc', type: 'directory', id: index + 1, body: { title: "#{term}", description: "blank" }
+  client.index
+    index: 'products_jc',
+      type: 'directory',
+        id: index + 1,
+          body: {
+            title: "#{term}",
+            description: "blank"
+            }
 end
