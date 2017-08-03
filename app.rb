@@ -4,7 +4,7 @@ client = Elasticsearch::Client.new log: true
 
 TERMS = ["Dioxide", "dioxide", "dioxide"]
 
-client.indices.create index: 'products',
+client.indices.create index: 'products_jc',
                       body: {
                         settings: {
                           # index: {
@@ -46,5 +46,5 @@ client.indices.create index: 'products',
                       }
 
 TERMS.each_with_index do |term, index|
-  client.index  index: 'products', type: 'directory', id: index + 1, body: { title: "#{term}" }
+  client.index  index: 'products_jc', type: 'directory', id: index + 1, body: { title: "#{term}", description: "blank" }
 end
